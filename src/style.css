@@ -14,32 +14,35 @@ body {
 .container {
   background-color: white;
   max-width: 30%;
-  margin: 30vh auto;
+  margin: 15vh auto;
   border: 1px solid lightgrey;
 }
 
 .list-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   padding: 1em;
 }
 
 .add-task {
-  padding: 1em;
+  height: 6vh;
   display: flex;
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
+  align-items: center;
 }
 
 .main-list {
   list-style: none;
+  max-height: 45vh;
+  overflow-y: auto;
 }
 
 .task {
   display: flex;
   align-items: center;
-  padding: 1em;
+  padding: 1em 0 1em 1em;
   border-bottom: 1px solid lightgrey;
   font-size: 1.5em;
 }
@@ -96,5 +99,43 @@ body {
 }
 
 .clear:hover {
+  cursor: pointer;
+}
+
+.list-header span {
+  font-size: 2em;
+  color: rgb(129, 129, 129);
+}
+
+.add-task input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding-left: 2em;
+  font-size: 1.1em;
+  outline: none;
+}
+
+.add-task span {
+  font-size: 2em;
+  color: rgb(129, 129, 129);
+  margin-right: 0.5em;
+}
+
+.task span {
+  font-size: 2em;
+  margin-right: 0.2em;
+  margin-left: auto;
+}
+
+.task span:hover {
+  cursor: move;
+}
+
+.add-task span:hover {
+  cursor: pointer;
+}
+
+.list-header span:hover {
   cursor: pointer;
 }
