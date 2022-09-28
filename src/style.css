@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: aqua;
+  background-color: rgb(238, 238, 238);
 }
 
 .container {
@@ -16,6 +16,7 @@ body {
   max-width: 30%;
   margin: 15vh auto;
   border: 1px solid lightgrey;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .list-header {
