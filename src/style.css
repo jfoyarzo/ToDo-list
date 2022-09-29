@@ -11,6 +11,10 @@ body {
   background-color: rgb(238, 238, 238);
 }
 
+.hidden {
+  display: none;
+}
+
 .container {
   background-color: white;
   max-width: 30%;
@@ -46,6 +50,7 @@ body {
   padding: 1em 0 1em 1em;
   border-bottom: 1px solid lightgrey;
   font-size: 1.5em;
+  position: relative;
 }
 
 .checkInput {
@@ -103,6 +108,42 @@ body {
   cursor: pointer;
 }
 
+.task-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  list-style: none;
+  font-size: 0.8rem;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 5px;
+  position: absolute;
+  right: 30px;
+  top: 25px;
+  z-index: 99;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+}
+
+.open-task-menu {
+  transform: scale(1);
+}
+
+.task-menu li {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 2em;
+  height: 3em;
+}
+
+.task-menu li:hover {
+  background-color: rgba(224, 224, 224, 0.6);
+  cursor: pointer;
+}
+
 .list-header span {
   font-size: 2em;
   color: rgb(129, 129, 129);
@@ -130,7 +171,7 @@ body {
 }
 
 .task span:hover {
-  cursor: move;
+  cursor: pointer;
 }
 
 .add-task span:hover {
