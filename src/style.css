@@ -111,12 +111,20 @@ body {
   list-style: none;
   font-size: 0.8rem;
   border: 1px solid rgb(224, 224, 224);
+  border-radius: 5px;
   position: absolute;
   right: 30px;
   top: 25px;
   z-index: 2;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: transform 0.2s;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
+}
+
+.open-task-menu {
+  transform: scale(1);
 }
 
 .task-menu li {
