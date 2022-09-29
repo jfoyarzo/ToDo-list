@@ -37,7 +37,7 @@ const showTasks = () => {
                 edit_square
             </span>
         </li>
-        <li class="deleTask" data-index ="${i}">
+        <li class="deleteTask" data-index ="${i}">
             <span class="task-menu-text">Delete</span>
             <span class="material-symbols-outlined">
                 delete
@@ -56,6 +56,7 @@ const showTasks = () => {
   const updateBtn = document.querySelector('#edit-btn');
   const addInput = document.querySelector('#add-input');
   const menuBtn = document.querySelectorAll('.menu-btn');
+  const deleteBtn = document.querySelectorAll('.deleteTask');
 
   menuBtn.forEach((e) => {
     e.addEventListener('click', (ev) => {
@@ -65,6 +66,7 @@ const showTasks = () => {
 
   editBtn.forEach((e) => {
     e.addEventListener('click', (ev) => {
+      ev.stopImmediatePropagation();
       const closest = ev.target.closest('[data-index]');
       const { index } = closest.dataset;
       const selectedTask = allTasks[index];
@@ -72,6 +74,19 @@ const showTasks = () => {
       document.querySelector('#add-btn').classList.add('hidden');
       updateBtn.classList.remove('hidden');
       updateBtn.setAttribute('data-index', index);
+      showTasks();
+    });
+  });
+
+  deleteBtn.forEach((e) => {
+    e.addEventListener('click', (ev) => {
+      const closest = ev.target.closest('[data-index]');
+      const { index } = closest.dataset;
+      allTasks.splice(index, 1);
+      allTasks.forEach((e, i) => {
+        e.index = i + 1;
+      });
+      localStorage.setItem('tasks', JSON.stringify(allTasks));
       showTasks();
     });
   });
