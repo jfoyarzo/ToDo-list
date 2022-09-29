@@ -41,6 +41,18 @@ const showTasks = () => {
   });
 };
 
+const showMenu = (element) => {
+  const parent = element.parentElement;
+  const ul = parent.children[1];
+  ul.classList.add('open-task-menu');
+  document.addEventListener('click', (e) => {
+    const isClose = e.target.closest('.open-task-menu');
+    if (!isClose && ul.classList.contains('open-task-menu')) {
+      ul.classList.remove('open-task-menu');
+    }
+  });
+};
+
 const AddTask = () => {
   const desc = document.querySelector('#add-input').value;
   const task = new Task(desc);
@@ -51,8 +63,15 @@ const AddTask = () => {
   showTasks();
 };
 
-window.onload = () => {
-  showTasks();
-  const addBtn = document.getElementById('add-btn');
-  addBtn.addEventListener('click', AddTask);
-};
+showTasks();
+const addBtn = document.getElementById('add-btn');
+const menuBtn = document.querySelectorAll('.menu-btn');
+menuBtn.forEach((e) => {
+  e.addEventListener('click', (ev) => {
+    showMenu(ev.target);
+  });
+});
+
+
+
+addBtn.addEventListener('click', AddTask);
