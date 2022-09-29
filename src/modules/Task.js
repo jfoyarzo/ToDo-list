@@ -4,8 +4,4 @@ export default class Task {
     this.completed = completed;
     this.index = index;
   }
-
-    EditTask = (newDesc) => {
-      this.description = newDesc;
-    };
 }
