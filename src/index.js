@@ -41,14 +41,15 @@ const showTasks = () => {
   });
 };
 
-const showMenu = (element) => {
+const showMenu = async (element) => {
   const parent = element.parentElement;
   const ul = parent.children[1];
   ul.classList.add('open-task-menu');
-  document.addEventListener('click', (e) => {
+  const newUl = document.querySelector('.open-task-menu');
+  window.addEventListener('mouseup', (e) => {
     const isClose = e.target.closest('.open-task-menu');
-    if (!isClose && ul.classList.contains('open-task-menu')) {
-      ul.classList.remove('open-task-menu');
+    if (!isClose && newUl.classList.contains('open-task-menu')) {
+      newUl.classList.remove('open-task-menu');
     }
   });
 };
@@ -71,7 +72,5 @@ menuBtn.forEach((e) => {
     showMenu(ev.target);
   });
 });
-
-
 
 addBtn.addEventListener('click', AddTask);
