@@ -27,27 +27,51 @@ const showTasks = () => {
   const parser = new DOMParser();
   const ul = document.querySelector('.main-list');
   ul.innerHTML = '';
+  let liStr = '';
   allTasks.forEach((e, i) => {
-    const liStr = `<li>
-    <input type="checkbox" class="checkInput">${e.description}
-    <ul class="task-menu">
-        <li class="editTask" data-index ="${i}">
-            <span class="task-menu-text">Edit</span>
-            <span class="material-symbols-outlined">
-                edit_square
-            </span>
-        </li>
-        <li class="deleteTask" data-index ="${i}">
-            <span class="task-menu-text">Delete</span>
-            <span class="material-symbols-outlined">
-                delete
-            </span>
-        </li>
-    </ul>
-    <span class="material-symbols-outlined menu-btn">
-        more_vert
-    </span>
-    </li>`;
+    if (e.completed === true) {
+      liStr = `<li>
+        <input type="checkbox" class="checkInput dash-through" checked>${e.description}
+        <ul class="task-menu">
+            <li class="editTask" data-index ="${i}">
+                <span class="task-menu-text">Edit</span>
+                <span class="material-symbols-outlined">
+                    edit_square
+                </span>
+            </li>
+            <li class="deleteTask" data-index ="${i}">
+                <span class="task-menu-text">Delete</span>
+                <span class="material-symbols-outlined">
+                    delete
+                </span>
+            </li>
+        </ul>
+        <span class="material-symbols-outlined menu-btn">
+            more_vert
+        </span>
+        </li>`;
+    } else {
+      liStr = `<li>
+        <input type="checkbox" class="checkInput">${e.description}
+        <ul class="task-menu">
+            <li class="editTask" data-index ="${i}">
+                <span class="task-menu-text">Edit</span>
+                <span class="material-symbols-outlined">
+                    edit_square
+                </span>
+            </li>
+            <li class="deleteTask" data-index ="${i}">
+                <span class="task-menu-text">Delete</span>
+                <span class="material-symbols-outlined">
+                    delete
+                </span>
+            </li>
+        </ul>
+        <span class="material-symbols-outlined menu-btn">
+            more_vert
+        </span>
+        </li>`;
+    }
     const li = parser.parseFromString(liStr, 'text/html').body.firstChild;
     li.classList.add('task');
     ul.append(li);
