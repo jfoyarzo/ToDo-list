@@ -1,4 +1,5 @@
 import Task from './Task.js';
+import { setStatus } from './statusUpdate.js';
 
 const localData = JSON.parse(localStorage.getItem('tasks'));
 
@@ -31,7 +32,7 @@ const showTasks = () => {
   allTasks.forEach((e, i) => {
     if (e.completed === true) {
       liStr = `<li>
-        <input type="checkbox" class="checkInput dash-through" checked>${e.description}
+        <input type="checkbox" class="checkInput" id="input${i}" data-index ="${i}" checked><label for="input${i}">${e.description}</label>
         <ul class="task-menu">
             <li class="editTask" data-index ="${i}">
                 <span class="task-menu-text">Edit</span>
@@ -52,7 +53,7 @@ const showTasks = () => {
         </li>`;
     } else {
       liStr = `<li>
-        <input type="checkbox" class="checkInput">${e.description}
+        <input type="checkbox" class="checkInput" id="input${i}" data-index ="${i}"><label for="input${i}">${e.description}</label>
         <ul class="task-menu">
             <li class="editTask" data-index ="${i}">
                 <span class="task-menu-text">Edit</span>
@@ -81,6 +82,16 @@ const showTasks = () => {
   const addInput = document.querySelector('#add-input');
   const menuBtn = document.querySelectorAll('.menu-btn');
   const deleteBtn = document.querySelectorAll('.deleteTask');
+  const inputs = document.querySelectorAll('input');
+
+  inputs.forEach((e) => {
+    e.addEventListener('change', (ev) => {
+      ev.stopImmediatePropagation();
+      const { index } = ev.target.dataset;
+      setStatus(allTasks, index);
+      showTasks();
+    });
+  });
 
   menuBtn.forEach((e) => {
     e.addEventListener('click', (ev) => {
