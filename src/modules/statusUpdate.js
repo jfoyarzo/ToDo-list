@@ -8,4 +8,9 @@ const setStatus = (array, index) => {
   localStorage.setItem('tasks', JSON.stringify(array));
 };
 
-export { setStatus };
+const clearCompleted = (array) => {
+  const newArray = array.filter((e) => e.completed === false);
+  localStorage.setItem('tasks', JSON.stringify(newArray));
+};
+
+export { setStatus, clearCompleted };

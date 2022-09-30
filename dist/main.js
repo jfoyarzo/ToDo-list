@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_functions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/functions.js */ \"./src/modules/functions.js\");\n\n\n\n(0,_modules_functions_js__WEBPACK_IMPORTED_MODULE_1__.showTasks)();\nconst addBtn = document.getElementById('add-btn');\naddBtn.addEventListener('click', _modules_functions_js__WEBPACK_IMPORTED_MODULE_1__.AddTask);\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_functions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/functions.js */ \"./src/modules/functions.js\");\n/* harmony import */ var _modules_statusUpdate_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/statusUpdate.js */ \"./src/modules/statusUpdate.js\");\n\n\n\n\n(0,_modules_functions_js__WEBPACK_IMPORTED_MODULE_1__.showTasks)();\nconst addBtn = document.getElementById('add-btn');\nconst clearBtn = document.querySelector('.clear');\naddBtn.addEventListener('click', _modules_functions_js__WEBPACK_IMPORTED_MODULE_1__.AddTask);\nclearBtn.addEventListener('click', (ev) => {\n  ev.stopImmediatePropagation();\n  const array = JSON.parse(localStorage.getItem('tasks'));\n  (0,_modules_statusUpdate_js__WEBPACK_IMPORTED_MODULE_2__.clearCompleted)(array);\n  window.location.reload();\n});\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Task)\n/* harmony export */ });\nclass Task {\r\n  constructor(description, completed = false, index = 0) {\r\n    this.description = description;\r\n    this.completed = completed;\r\n    this.index = index;\r\n  }\r\n}\n\n//# sourceURL=webpack://todo-list/./src/modules/Task.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Task)\n/* harmony export */ });\nclass Task {\n  constructor(description, completed = false, index = 0) {\n    this.description = description;\n    this.completed = completed;\n    this.index = index;\n  }\n}\n\n//# sourceURL=webpack://todo-list/./src/modules/Task.js?");
 
 /***/ }),
 
@@ -146,7 +146,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setStatus\": () => (/* binding */ setStatus)\n/* harmony export */ });\nconst setStatus = (array, index) => {\n  const element = array[index];\n  if (element.completed === true) {\n    element.completed = false;\n  } else {\n    element.completed = true;\n  }\n  localStorage.setItem('tasks', JSON.stringify(array));\n};\n\n\n\n//# sourceURL=webpack://todo-list/./src/modules/statusUpdate.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"clearCompleted\": () => (/* binding */ clearCompleted),\n/* harmony export */   \"setStatus\": () => (/* binding */ setStatus)\n/* harmony export */ });\nconst setStatus = (array, index) => {\n  const element = array[index];\n  if (element.completed === true) {\n    element.completed = false;\n  } else {\n    element.completed = true;\n  }\n  localStorage.setItem('tasks', JSON.stringify(array));\n};\n\nconst clearCompleted = (array) => {\n  const newArray = array.filter((e) => e.completed === false);\n  localStorage.setItem('tasks', JSON.stringify(newArray));\n};\n\n\n\n//# sourceURL=webpack://todo-list/./src/modules/statusUpdate.js?");
 
 /***/ })
 
