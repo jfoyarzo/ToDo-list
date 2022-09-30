@@ -1,4 +1,5 @@
 import Task from './Task.js';
+import { setStatus } from './statusUpdate.js';
 
 const localData = JSON.parse(localStorage.getItem('tasks'));
 
@@ -12,7 +13,7 @@ if (localData) {
 
 const showMenu = (element) => {
   const parent = element.parentElement;
-  const ul = parent.children[1];
+  const ul = parent.children[2];
   ul.classList.add('open-task-menu');
   const newUl = document.querySelector('.open-task-menu');
   window.addEventListener('mouseup', (e) => {
@@ -27,27 +28,51 @@ const showTasks = () => {
   const parser = new DOMParser();
   const ul = document.querySelector('.main-list');
   ul.innerHTML = '';
+  let liStr = '';
   allTasks.forEach((e, i) => {
-    const liStr = `<li>
-    <input type="checkbox" class="checkInput">${e.description}
-    <ul class="task-menu">
-        <li class="editTask" data-index ="${i}">
-            <span class="task-menu-text">Edit</span>
-            <span class="material-symbols-outlined">
-                edit_square
-            </span>
-        </li>
-        <li class="deleteTask" data-index ="${i}">
-            <span class="task-menu-text">Delete</span>
-            <span class="material-symbols-outlined">
-                delete
-            </span>
-        </li>
-    </ul>
-    <span class="material-symbols-outlined menu-btn">
-        more_vert
-    </span>
-    </li>`;
+    if (e.completed === true) {
+      liStr = `<li>
+        <input type="checkbox" class="checkInput" id="input${i}" data-index ="${i}" checked><label for="input${i}">${e.description}</label>
+        <ul class="task-menu">
+            <li class="editTask" data-index ="${i}">
+                <span class="task-menu-text">Edit</span>
+                <span class="material-symbols-outlined">
+                    edit_square
+                </span>
+            </li>
+            <li class="deleteTask" data-index ="${i}">
+                <span class="task-menu-text">Delete</span>
+                <span class="material-symbols-outlined">
+                    delete
+                </span>
+            </li>
+        </ul>
+        <span class="material-symbols-outlined menu-btn">
+            more_vert
+        </span>
+        </li>`;
+    } else {
+      liStr = `<li>
+        <input type="checkbox" class="checkInput" id="input${i}" data-index ="${i}"><label for="input${i}">${e.description}</label>
+        <ul class="task-menu">
+            <li class="editTask" data-index ="${i}">
+                <span class="task-menu-text">Edit</span>
+                <span class="material-symbols-outlined">
+                    edit_square
+                </span>
+            </li>
+            <li class="deleteTask" data-index ="${i}">
+                <span class="task-menu-text">Delete</span>
+                <span class="material-symbols-outlined">
+                    delete
+                </span>
+            </li>
+        </ul>
+        <span class="material-symbols-outlined menu-btn">
+            more_vert
+        </span>
+        </li>`;
+    }
     const li = parser.parseFromString(liStr, 'text/html').body.firstChild;
     li.classList.add('task');
     ul.append(li);
@@ -57,6 +82,16 @@ const showTasks = () => {
   const addInput = document.querySelector('#add-input');
   const menuBtn = document.querySelectorAll('.menu-btn');
   const deleteBtn = document.querySelectorAll('.deleteTask');
+  const inputs = document.querySelectorAll('input');
+
+  inputs.forEach((e) => {
+    e.addEventListener('change', (ev) => {
+      ev.stopImmediatePropagation();
+      const { index } = ev.target.dataset;
+      setStatus(allTasks, index);
+      showTasks();
+    });
+  });
 
   menuBtn.forEach((e) => {
     e.addEventListener('click', (ev) => {

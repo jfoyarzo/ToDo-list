@@ -88,6 +88,10 @@ body {
   color: chocolate;
 }
 
+.checkInput:checked + label {
+  text-decoration: line-through;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
