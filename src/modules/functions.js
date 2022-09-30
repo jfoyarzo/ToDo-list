@@ -13,7 +13,7 @@ if (localData) {
 
 const showMenu = (element) => {
   const parent = element.parentElement;
-  const ul = parent.children[1];
+  const ul = parent.children[2];
   ul.classList.add('open-task-menu');
   const newUl = document.querySelector('.open-task-menu');
   window.addEventListener('mouseup', (e) => {
