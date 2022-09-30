@@ -17,6 +17,10 @@ To get a local copy, run the fllowing command.
 
 - `git clone git@github.com:jfoyarzo/ToDo-list.git`
 
+### Live Demo
+
+You can see a live demo of this app [here.](https://jfoyarzo.github.io/ToDo-list/dist/)
+
 ### Prerequisites
 
 - node.js
