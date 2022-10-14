@@ -2,7 +2,7 @@
 
 # To Do List
 
-> App for keeping track of tasks. Users can mark completed tasks and add new ones.
+> App for keeping track of tasks. Users can add and edit tasks, mark the ones that are completed, and clear all completed tasks.
 
 ## Built With
 
