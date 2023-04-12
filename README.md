@@ -1,55 +1,152 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+<a name="readme-top"></a>
 
-# To Do List
+<!-- TABLE OF CONTENTS -->
 
-> App for keeping track of tasks. Users can add and edit tasks, mark the ones that are completed, and clear all completed tasks.
+# 📗 Table of Contents
 
-## Built With
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 To-do App ](#-skatepark-app-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [📝 License ](#-license-)
 
-- HTML
-- CSS
-- JavaScript
-- Webpack
+<!-- PROJECT DESCRIPTION -->
 
-## Getting Started
+# 📖 To-do App <a name="about-project"></a>
 
-To get a local copy, run the fllowing command.
+**To-do App** is an app for keeping track of tasks. Users can add and edit tasks, mark the ones that are completed, and clear all completed tasks. Built using vanilla JavaScript, CSS and HTML
 
-- `git clone git@github.com:jfoyarzo/ToDo-list.git`
+## 🛠 Built With <a name="built-with"></a>
 
-### Live Demo
+### Tech Stack <a name="tech-stack"></a>
 
-You can see a live demo of this app [here.](https://jfoyarzo.github.io/ToDo-list/dist/)
+
+<details>
+  <summary>Frontend</summary>
+  <ul>
+    <li><a href="https://www.javascript.com/">Vanilla JavaScript</a></li>
+  </ul>
+</details>
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+
+- **CRUD** functionality for tasks.
+- **Saves your work** by persisting the data in your browser's local storage.
+- **Minimalistic UI** so you can focus on productivity.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://jfoyarzo.github.io/ToDo-list/dist/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
+To run this project you need:
 
-- node.js
-- git
-- webpack-dev-server
+- Node.js
+- Git
+- Webpack-dev-server
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```
+git clone git@github.com:jfoyarzo/ToDo-list.git
+```
 
 ### Install
 
-- `npm install `
+Install this project's dependencies with:
+
+```
+npm install
+```
 
 ### Usage
 
-Run `npm start`to serve files on the dev-server for access on http://localhost:8080/
+To start the server use the following command: <br>
+```
+npm start
+```
 
-or
+This will serve the frontend on:<br>
+http://localhost:8080 <br>
 
-Run `index.html` on `/dist` folder using live server
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Authors
+<!-- AUTHORS -->
 
-👤 **Author**
+## 👥 Authors <a name="authors"></a>
+
+👤 **Felipe Oyarzo**
 
 - GitHub: [@jfoyarzo](https://github.com/jfoyarzo)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/jorge-felipe-oyarzo-contreras-647118247/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/jorge-felipe-oyarzo-contreras/)
 
-## Show your support
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Give a ⭐️ if you like this project!
+<!-- FUTURE FEATURES -->
 
-## 📝 License
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Upgraded CSS styles**
+- [ ] **Better and responsive design**
+- [ ] **Dark Theme**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/jfoyarzo/ToDo-list/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+
+If you like this project please give it a ⭐!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
